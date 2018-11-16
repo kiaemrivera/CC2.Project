@@ -1,0 +1,45 @@
+
+package fibonacci;
+import java.util.Scanner;
+
+public class Fibonacci {
+
+    public static void main(String[] args) {
+        
+        display();
+
+    }
+    public static void display() {
+        int value = userInput();
+        int o;
+        int y;
+        int a;
+        
+        for (a = 0; a <= value; a++) {
+            System.out.printf("f(" + a +") " + "\t");
+        }
+        System.out.println("");
+        for (o=0; o <= value; o++) {
+            for (y = 0; y <= o; y++) {
+                System.out.printf (fibonacci(y) + "\t");
+            }
+            System.out.println(""); }
+        }
+      public static int userInput() {
+          int value;
+          Scanner sc = new Scanner (System.in);
+          System.out.println ("Enter Fibonacci Sequence value: ");
+          value = sc. nextInt();
+          return value;
+    }
+       public static long fibonacci (int value) {
+           if (value == 0) {
+               return 0;
+           } else if (value == 1) {
+               return 1;
+           }
+           else {
+               return fibonacci (value-1) + fibonacci (value - 2);
+           }
+       }
+}
