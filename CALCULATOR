@@ -1,0 +1,55 @@
+
+package javaapplication28;
+import java.util.Scanner;
+
+public class JavaApplication28 {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner (System.in);
+        double num1, num2;
+        String arithmeticOper;
+        
+        System.out.println ("Enter first number:");
+        num1 = input.nextDouble();
+        
+        System.out.println("Arithmetic operator (+, -, /, *, %, OR add, subtract,divide, multiply, modulo)");
+        arithmeticOper = input.next();
+        
+        System.out.println("Enter second number:");
+        num2 = input.nextDouble();
+        
+        
+        switch (arithmeticOper) {
+            case "+":
+            case "add":
+                System.out.println(num1 + "+" + num2 + "=" + (num1 + num2));
+                break;
+        }
+        
+        switch (arithmeticOper) {
+            case "-":
+            case "subtract":
+                System.out.println (num1 + "-" + num2 + "-" + (num1 - num2));
+                break;
+        }
+       switch (arithmeticOper) {
+            case "/":
+            case "divide":
+                System.out.println (num1 + "/" + num2 + "/" + (num1 / num2));
+                break;
+       }
+       switch (arithmeticOper) {
+            case "*":
+            case "multiply":
+                System.out.println (num1 + "*" + num2 + "*" + (num1 * num2));
+                break;
+       }
+       switch (arithmeticOper) {
+            case "%":
+            case "modulo":
+                System.out.println (num1 + "%" + num2 + "%" + (num1 % num2));
+                break;
+
+    }
+    }
+}
