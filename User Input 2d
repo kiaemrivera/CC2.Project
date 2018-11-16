@@ -1,0 +1,31 @@
+
+package javaapplication29;
+import java.util.Scanner;
+
+public class JavaApplication29 {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner (System.in);
+        
+        System.out.println ("Enter name:");
+        String user = scan.next();
+        System.out.println ("How many times it will be repeated:");
+        int name1 = scan.nextInt();
+        
+        for (int x=1; x<= name1; x++) {
+            System.out.println (user);
+        }
+        int y =1;
+        while (y <= name1) {
+            System.out.println (user);
+            y++;
+        }
+         int i = 1;
+         do {
+             
+             System.out.println (user);
+             i++;
+         } while (i <= name1);
+
+    }
+}
