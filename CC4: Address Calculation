@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+public class Test1 {
+public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter dimension: ");
+        int dimension = sc.nextInt();
+        int[] dimSize = new int[dimension];
+
+        for (int i = 0; i < dimension; i++) {
+
+            System.out.println("Enter UB" + i);
+            dimSize[i] = sc.nextInt();
+
+        }
+
+        System.out.println("Enter Starting address: ");
+        int SA = sc.nextInt();
+        System.out.println("Enter esize: ");
+        int ES = sc.nextInt();
+
+        int numElements = 1;
+
+        for (int i = 0; i < dimension; i++) {
+
+            numElements *= dimSize[i];
+
+        }
+
+        System.out.println("Total number of Elements in the Array: "
+                + numElements);
+
+        System.out.println("\n***SEARCH FOR MEMORY ADRESS OF ith ELEMENT***\n");
+
+        int[] search = new int[dimension];
+
+        for (int i = 0; i < dimension; i++) {
+
+            System.out.println("Input search index at dimension " + i);
+            search[i] = sc.nextInt();
+
+        }
+
+        int searchSum = 0;
+        for (int i = 0; i < dimension; i++) {
+
+            searchSum += search[i];
+
+        }
+
+        int UP = 1;
+        int j = 1;
+        
+        for (int i = 1; i < dimension; i++) {
+            
+            for(j = i; j < dimension; j++) {    
+                UP *= dimSize[j];
+            }
+            j = i;
+            j++;
+            
+        }
+        
+        int MA = SA + (searchSum + UP) * ES;
+
+        System.out.println("MEMORY ADDRESS: " + MA);
+
+    }
+
+}
