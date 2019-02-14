@@ -1,0 +1,55 @@
+package stacksz;
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Stacksz {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Stack st = new Stack();//////////////////////////// ITO YUNG ST OH
+
+        System.out.println("Enter the size of the Stack: ");
+        int size = sc.nextInt();
+        int opt; 
+        int top = -1; // - to top++ to become 0 because starting index is always 0
+        
+        do {
+            System.out.println("Options: " + "\n[1] PUSH" + "\n[2] POP" + "\n[3] EXIT");
+            opt = sc.nextInt();
+
+            if (opt == 1) {
+
+                if (top == size - 1) {
+                    System.out.println("Sorry,The Stack is Full!");
+                    System.out.println("STACK: " + st);
+                    System.out.println("TOP: " + top);
+                } else {
+                    System.out.println("Push a number:"); // 1st
+                    int x = sc.nextInt();
+                    st.push(x); // Push value of x in stack
+                    System.out.println("STACK: " + st);
+                    top++;//index
+                    System.out.println("TOP: " + top);
+                }
+
+            } else if (opt == 2) {
+                if (top == -1 ) { //- NA INDEX KAYA STACK IS EMPTY
+                    System.out.println("Sorry, The Stack is Empty!");
+                } else {
+                    st.pop(); //pamparemove lang ang popppppp
+                    System.out.println("STACK: " + st);
+                    top--;
+                    System.out.println("TOP: " + top);
+                }
+            }
+
+        } while (opt != 3);
+        
+        System.out.println("Final Stack: " +st);
+        
+    }
+    
+}
