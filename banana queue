@@ -1,0 +1,81 @@
+package act5;
+
+import java.util.Scanner;
+
+public class ACT5 {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the size of the Queue");
+        int QueueSize = sc.nextInt();
+        int[] queue = new int[QueueSize];
+        int rear = -1;
+        int option;
+        do {
+            System.out.println("Options: \n[1]INSERT \n[2]DELETE \n[3]EXIT");
+            option = sc.nextInt();
+
+            if (option == 1) {
+                if (rear == QueueSize - 1) {
+                    System.out.println("Sorry, Queue is full.");
+                    System.out.print("QUEUE: [ ");
+                    for (int i = 0; i <= rear; i++) {
+                        System.out.print(queue[i] + " ");
+                    }
+                    System.out.print("]");
+                    System.out.println("REAR: " + rear);
+                } else {
+                    System.out.println("Insert a number: ");
+                    int add = sc.nextInt();
+                    rear++;
+                    queue[rear] = add;
+                    System.out.print("QUEUE: [ ");
+                    for (int i = 0; i <= rear; i++) {
+                        System.out.print(queue[i] + " ");
+                    }
+                    System.out.print("]");
+                    System.out.println("REAR: " + rear);
+                }
+            } else if (option == 2) {
+                if (rear == -1) {
+                    System.out.println("Sorry, Queue is empty.");
+                    System.out.print("QUEUE: [ ");
+                    for (int i = 0; i <= rear; i++) {
+                        System.out.print(queue[i] + " ");
+                    }
+                    System.out.print("]");
+                    System.out.println("REAR: " + rear);
+                } else {
+                    rear--;
+                    for (int i = 1; i < queue.length; i++) {
+                        queue[i - 1] = queue[i];
+                    }
+                    QueueSize--;
+                    System.out.print("QUEUE: [ ");
+                    for (int i = 0; i <= rear; i++) {
+                        System.out.print(queue[i] + " ");
+                    }
+                    System.out.print("]");
+                    System.out.println("REAR: " + rear);
+                }
+            } else if (option > 3){
+                System.out.println("INVALID INPUT. TRY AGAIN.");
+                System.out.print("QUEUE: [ ");
+                    for (int i = 0; i <= rear; i++) {
+                        System.out.print(queue[i] + " ");
+                    }
+                    System.out.print("]");
+                    System.out.println("REAR: " + rear);
+            }
+        } while (option != 3);
+        System.out.print("FINAL QUEUE: [ ");
+            for (int i = 0; i <= rear; i++) {
+                System.out.print(queue[i] + " ");
+            }
+            System.out.print("]");
+            System.out.println("REAR: " + rear);
+    }
+
+}
