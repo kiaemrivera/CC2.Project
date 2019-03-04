@@ -1,0 +1,50 @@
+
+package rpg;
+
+
+public class RPG {
+    
+    public static void main(String[] args) {
+        
+        Character Vampire = new Character ("Marceline",3,4,6);
+        Character Human = new Character ("Finn",1,3,5);
+        
+        for (int i = 1; Vampire.getCurrentLife() >= 0 && Human.getCurrentLife() >= 0; i++){
+            System.out.println("Round: "+ i);
+            
+            System.out.println(Vampire.getName()+": "+Vampire.getCurrentLife()+"Life");
+            System.out.println(Human.getName()+": "+Human.getCurrentLife()+"Life");
+            
+            int x = Vampire.attack();
+            Human.wound(x);
+            
+            int y = Human.attack();
+            Vampire.wound(y);
+            
+            System.out.println(Vampire.getName()+" attack "+Human.getName()+ " for "+x );
+            System.out.println(Human.getName()+" attack "+Vampire.getName()+ " for "+y);
+            
+            if (Vampire.getCurrentLife() <= 0&& Human.getCurrentLife() <= 0) {
+                System.out.println(Vampire.getName()+ Vampire.getCurrentLife());
+                System.out.println(Human.getName()+ Human.getCurrentLife());
+                System.out.println(Vampire.getName() +" and "+Human.getName()+" Died! ");
+                break;
+            }
+            
+            else if(Vampire.getCurrentLife() <= 0){
+                System.out.println(Vampire.getName()+" Life "+Vampire.getCurrentLife());
+                System.out.println(Human.getName()+ " Life "+Human.getCurrentLife());
+                System.out.println(Human.getName()+" Wins!");
+                break;
+            }
+            
+            else if(Human.getCurrentLife()<=0){
+                System.out.println(Human.getName()+" Life "+Human.getCurrentLife());
+                System.out.println(Vampire.getName()+ " Life "+Vampire.getCurrentLife());
+                System.out.println(Vampire.getName()+" Wins!");
+                break;
+            }
+        }
+    }
+    
+}
