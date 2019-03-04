@@ -1,0 +1,62 @@
+public class CharacterDuel {
+ public static void main(String[] args) {
+
+ Wizard Rylai  = new Wizard("Rylai",10,15,10);
+ Goblin BloodSeeker = new Goblin("BloodSeeker",30,10,10);
+
+ int damage;
+
+ for(int i = 1;;i++) {
+ System.out.println();
+ System.out.println("Round " + i);
+ System.out.println(Rylai.getName()+": "+Rylai.getCurrentLife());
+ System.out.println(BloodSeeker.getName()+": "+BloodSeeker.getCurrentLife());
+
+ if( (Rylai.getCurrentMagic() >= 8) && (Rylai.getCurrentLife() < 20) ) {
+    System.out.println(Rylai.getName() + " casts heal for " 
+         + Rylai.castHeal());
+ } 
+    else {
+    if (Rylai.getCurrentMagic()>=8) {
+        damage = Rylai.castLightningBolt();
+        System.out.println(Rylai.getName()+" Lightning Bolts "
+                +BloodSeeker.getName()+" for "+damage);
+ } 
+    else {
+        damage = Rylai.castLightningBolt();
+        System.out.println(Rylai.getName()+" Lightning Bolts "
+                +BloodSeeker.getName()+" for "+damage);
+ }
+    BloodSeeker.wound(damage);
+    
+    if (BloodSeeker.getCurrentLife()<=0) {
+        System.out.println(Rylai.getName()+" wins!");
+        break;
+    }
+ }
+
+    if( (BloodSeeker.getCurrentMana() >= 5) && (BloodSeeker.getCurrentLife() < 20) ) {
+        System.out.println(BloodSeeker.getName() + " casts heal for " 
+                + BloodSeeker.castHeal());
+ } 
+    else {
+      if (BloodSeeker.getCurrentMana()>=5) {
+        damage = BloodSeeker.doLifeBreak();
+        System.out.println(BloodSeeker.getName()+" Heart Breaks "+Rylai.getName()
+                +" for "+damage);
+ } 
+    else {
+        damage = BloodSeeker.doLifeBreak();
+        System.out.println(BloodSeeker.getName()+" Heart Breaks "+Rylai.getName()
+                +" for "+damage);
+ }
+        Rylai.wound(damage);
+        
+    if (Rylai.getCurrentLife()<=0) {
+        System.out.println(BloodSeeker.getName()+" wins!");
+        break;
+    }
+        }
+}
+    }
+ }
