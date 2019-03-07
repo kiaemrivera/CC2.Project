@@ -1,0 +1,133 @@
+*/
+import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+public class SmileFace extends Panel{
+    static String colorStr = "";
+    static String name = "";
+    Color color = new Color(255,255,255);
+    public SmileFace(){
+        this.setBackground(new Color(120,120,120));
+    }
+    public void paint(Graphics g){
+        //Circle     
+        if(colorStr.equals("red")){
+            color = new Color(255,0,0);
+        }else if(colorStr.equals("green")){
+            color = new Color(0,255,0);
+        }else if(colorStr.equals("pink")){
+            color = new Color(244,66,194);
+        }else if(colorStr.equals("violet")){
+            color = new Color(153,51,255);
+        }else if(colorStr.equals("blue")){
+            color = new Color(54,51,255);
+        }else if(colorStr.equals("yellow")){
+            color = new Color(246,255,51);
+        }else if(colorStr.equals("orange")){
+            color = new Color(255,166,51);
+        }else if(colorStr.equals("maroon")){
+            color = new Color(199,0,57);
+        }else if(colorStr.equals("purple")){
+            color = new Color(190,51,255);
+        }else if(colorStr.equals("grey")){
+            color = new Color(117,106,107);
+        }else if(colorStr.equals("black")){
+            color = new Color(0,0,0);
+        }
+        g.setColor(color);
+        g.fillOval(10,10,480,460);
+        
+        
+        //forehead
+        
+        //arc
+        g.setColor(Color.BLACK);
+        //rectangle
+        g.setColor(Color.BLACK);
+        g.fillRect(120, 300, 250, 130);
+        //Eyes
+        g.setColor(Color.WHITE);
+        int[] x = {410, 300, 410};
+        int[] y = {100, 300, 250};
+        g.fillPolygon(x, y, 3);
+        //Eyes
+        g.setColor(Color.WHITE);
+        int[] a = {90, 200, 90};
+        int[] b = {100, 300, 250};
+        g.fillPolygon(a, b, 3);
+        //Mouth
+        g.setColor(Color.WHITE);
+        g.fillArc(150, 220, 200, 200, 0, -180);
+        //Name
+        g.setFont(new Font("Times New Roman" , Font.ITALIC, 20));
+        g.drawString("Hi "+name, 12, 400);
+        //Horn
+        if(colorStr.equals("red")){
+            color = new Color(255,0,0);
+        }else if(colorStr.equals("green")){
+            color = new Color(0,255,0);
+        }else if(colorStr.equals("pink")){
+            color = new Color(244,66,194);
+        }else if(colorStr.equals("violet")){
+            color = new Color(153,51,255);
+        }else if(colorStr.equals("blue")){
+            color = new Color(54,51,255);
+        }else if(colorStr.equals("yellow")){
+            color = new Color(246,255,51);
+        }else if(colorStr.equals("orange")){
+            color = new Color(255,166,51);
+        }else if(colorStr.equals("maroon")){
+            color = new Color(199,0,57);
+        }else if(colorStr.equals("purple")){
+            color = new Color(190,51,255);
+        }else if(colorStr.equals("grey")){
+            color = new Color(117,106,107);
+        }else if(colorStr.equals("black")){
+            color = new Color(0,0,0);
+        }
+        g.setColor(color);
+        int[] c = {25,30,150};
+        int[] d = {155,0,30};
+        g.fillPolygon(c, d, 3);
+        //Horn
+                if(colorStr.equals("red")){
+            color = new Color(255,0,0);
+        }else if(colorStr.equals("green")){
+            color = new Color(0,255,0);
+        }else if(colorStr.equals("pink")){
+            color = new Color(244,66,194);
+        }else if(colorStr.equals("violet")){
+            color = new Color(153,51,255);
+        }else if(colorStr.equals("blue")){
+            color = new Color(54,51,255);
+        }else if(colorStr.equals("yellow")){
+            color = new Color(246,255,51);
+        }else if(colorStr.equals("orange")){
+            color = new Color(255,166,51);
+        }else if(colorStr.equals("maroon")){
+            color = new Color(199,0,57);
+        }else if(colorStr.equals("purple")){
+            color = new Color(190,51,255);
+        }else if(colorStr.equals("grey")){
+            color = new Color(117,106,107);
+        }else if(colorStr.equals("black")){
+            color = new Color(0,0,0);
+        }
+        g.setColor(color);
+        int[] e = {480,475,350};
+        int[] f = {155,0,35};
+        g.fillPolygon(e, f, 3);
+    }
+    
+    public static void main(String args[]){
+        name = JOptionPane.showInputDialog("Enter your name: ");
+        colorStr = JOptionPane.showInputDialog("Pick Color: ");
+        SmileFace panel = new SmileFace();
+        JFrame frame = new JFrame();
+        frame.add(panel);
+        frame.setVisible(true);
+        frame.setSize(500,500);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  }
+}
