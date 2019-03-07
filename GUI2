@@ -1,0 +1,55 @@
+
+package guidemo3;
+import javax.swing.*;
+import java.awt.*;
+
+
+public class GUIDemo3 extends Panel {
+    GUIDemo3(){
+        this.setBackground(Color.gray);
+    }
+
+    public static void main(String[] args) {
+        //Frame
+       JFrame frame = new JFrame("GUI Demo");
+       //Class object
+       GUIDemo3 gui = new GUIDemo3();
+       //setting size of frame
+       frame.setSize(800, 800);
+       //setting the default close operation
+       frame.setVisible(true);
+       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       //adding the object of class to the
+       frame.add(gui);
+    }
+    @Override
+    public void paint(Graphics g){
+        //super.setBackground(Color.red);
+        g.setColor(Color.orange);
+        g.fillRect(100, 100, 100,100 );
+        
+        g.setColor(Color.red);
+        g.fillOval(125, 125, 50, 50);
+        g.setColor(Color.black);
+        g.fillOval(100, 300, 100, 100);
+        
+        g.fillOval(500, 100, 100, 100);
+        g.setColor(Color.CYAN);
+        
+      
+        
+        g.drawOval(100, 100, 100, 100);
+        g.setColor(Color.BLACK);
+        
+        g.drawLine(350, 300, 450, 400);
+        g.setColor(Color.MAGENTA);
+        
+        g.drawLine(500, 500, 200, 300);
+        g.setColor(Color.RED);
+        
+        
+        g.drawRoundRect(100, 100, 150, 150, 300, 300);
+        g.setColor(Color.gray);
+        
+    }
+}
