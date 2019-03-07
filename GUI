@@ -1,0 +1,44 @@
+package graphicsdemo2;
+
+import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+public class GraphicsDemo2 extends Panel{
+    static String name = "";
+    
+    GraphicsDemo2(){
+        this.setBackground(Color.black);
+    }
+    public void paint(Graphics g){
+        g.setColor(new Color(130, 204, 255));
+        for(int x=0, y=0; x<getWidth() && y<getHeight(); x+=10, y+=10){
+        g.setColor(new Color((int)(Math.random()*255),
+                (int)(Math.random()*255),
+                (int)(Math.random()*255)));
+        g.drawRect(x, y, 10+x, 10+y);
+        g.fillOval(x+100, y, 100, 100);
+        
+        }
+        g.setColor(new Color(255, 255, 255));
+        g.setFont(new Font("Times New Roman", Font.BOLD, 30));
+        g.drawString("Hello" + name, 250, 240);
+        g.setColor(new Color(255, 255, 0));
+        g.fillArc(250, 240, 100, 100, 45, 315);
+        g.drawArc(350, 340, 100, 100, 0, -180);
+    }
+
+    public static void main(String[] args) {
+        name = JOptionPane.showInputDialog("Enter your name: ");
+        JFrame frame = new JFrame();
+        GraphicsDemo2 panel = new GraphicsDemo2();
+        frame.add(panel);
+        frame.setTitle("My 2nd Graphics");
+        frame.setSize(500,500);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+
+    }
+    
+}
