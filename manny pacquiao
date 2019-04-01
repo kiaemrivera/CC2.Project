@@ -1,0 +1,119 @@
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+public class PacmanItem extends JFrame implements KeyListener{
+    int x = 0;
+    int y = 0;
+    static Color color1;
+    int startangle = 30;
+    int endangle = 300;
+    int count = 1;
+    
+    PacmanItem(){
+        super.setTitle("Movement");
+        super.setSize(500, 500);
+        super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        super.addKeyListener(this);
+        
+    }
+    
+    @Override
+    public void paint(Graphics g){
+        super.paint(g);
+        
+        g.setColor(color1);            
+        g.fillArc(50+x, 50+y, 100, 100, startangle, endangle);
+        
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        int key = e.getKeyCode();
+        if(key == KeyEvent.VK_UP){
+            
+            
+            startangle = 140;
+            endangle = 260;
+            
+//          
+            count++;
+            
+            if(count%2 == 0){
+                startangle = 360;
+                endangle = 360;
+            }
+            if(y>-100){
+                y-=5;
+            }else{
+                y=450;
+            }
+        }
+        else if(key == KeyEvent.VK_DOWN){
+            startangle = 300;
+            endangle = 300;
+            
+            
+            count++;
+            if(count%2 == 0){
+                
+                startangle = 360;
+                endangle = 360;
+            }
+            
+            if(y < 450){
+                y+=5;
+            }else{
+                y=-50;
+            }
+        }else if(key == KeyEvent.VK_LEFT){
+            startangle = 225;
+            endangle = 290;
+            
+            count++;
+            
+            if(count%2 == 0){
+                startangle = 360;
+                endangle = 360;
+            }
+            if(x > -42){
+            x-=5;}
+            else{
+                x = -42;
+            }
+               
+        }else if(key == KeyEvent.VK_RIGHT){
+            startangle = 30;
+            endangle = 300;
+            
+            count++;
+            if(count%2 == 0){
+                startangle = 360;
+                endangle = 360;
+            }
+            if(x < 340){
+                x+=5;
+            }else{
+                x=340;
+            }
+        }
+        System.out.println(count);
+        
+        repaint();
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        
+    }
+    public static void main(String[] args) {
+        PacmanItem frame = new PacmanItem();
+        frame.setVisible(true);
+    }
+}
